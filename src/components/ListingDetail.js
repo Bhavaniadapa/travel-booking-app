@@ -21,7 +21,7 @@ const ListingDetail = ({ listing }) => {
     <div className="max-w-md mx-auto bg-white rounded-md overflow-hidden shadow-md">
       <Toast ref={toast} />
       <div className="image">
-        <img src={listing.image_url} alt={listing.name} />
+        <img src={listing.imageURL} alt={listing.name} />
       </div>
       <Divider />
       <div style={customCardStyle}>
@@ -29,8 +29,8 @@ const ListingDetail = ({ listing }) => {
           <div>
             <h2>{listing.name}</h2>
             <p>{listing.description}</p>
-            <p>Listed by: {listing.listed_by}</p>
-            <p>Listed on: {new Date(listing.listed_on).toDateString()}</p>
+            <p>Listed by: {listing.listedBy}</p>
+            <p>Listed on: {new Date(listing.listedOn).toDateString()}</p>
             <div
               style={{
                 display: "flex",

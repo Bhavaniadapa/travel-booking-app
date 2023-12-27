@@ -25,10 +25,7 @@ const Home = () => {
 
   const ofetchListings = async (page) => {
     try {
-      //using the GET endpoint as the POST ENDPOINT  https://65841ac24d1ee97c6bcefd4e.mockapi.io/listings?completed=false&page=1&limit=10
-      //not working due to maximum api calls exceded error which i mentioned in mail...
-      // writtern code in such a way that it should work for pagination as well..
-      const response = await axios.get(`https://65841ac24d1ee97c6bcefd4e.mockapi.io/listings`);
+      const response = await axios.get(`https://65841ac24d1ee97c6bcefd4e.mockapi.io/hotellistings?page=${page}&limit=10`);
       setoListings(response.data);
     } catch (error) {
       console.error('Error fetching listings:', error);
@@ -49,7 +46,7 @@ const Home = () => {
         <ListingCard key={listing.id} listing={listing} />
       ))}
       </div>
-      <Paginator first={first} rows={10} totalRecords={olistings.length} onPageChange={onPageChangeEvt} />
+      <Paginator first={first} rows={5} totalRecords={olistings.length} onPageChange={onPageChangeEvt} />
     
     </div>
   );

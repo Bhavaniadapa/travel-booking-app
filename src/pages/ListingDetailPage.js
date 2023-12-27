@@ -9,7 +9,7 @@ const ListingDetailPage = () => {
 
   const fetchListingDetail = async () => {
     try {
-      const response = await axios.get(`https://65841ac24d1ee97c6bcefd4e.mockapi.io/listings/${id}`);
+      const response = await axios.get(`https://65841ac24d1ee97c6bcefd4e.mockapi.io/hotellistings/${id}`);
       setListing(response.data);
     } catch (error) {
       console.error('Error fetching listing detail:', error);

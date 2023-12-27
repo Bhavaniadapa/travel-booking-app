@@ -5,7 +5,7 @@ import "./Card.css"
 const ListingCard = ({ listing }) => {
   return (
    <div className='card' >
-      <img  className="poster" src={listing.image_url} alt={listing.name} />
+      <img  className="poster" src={listing.imageURL} alt={listing.name} />
       <div className="poster-details">
         <div className="Title">{listing.name}</div>
         <p className="description">{listing.description}</p>
