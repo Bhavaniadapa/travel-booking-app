@@ -10,7 +10,7 @@ const ListingCard = ({ listing }) => {
         <div className="Title">{listing.name}</div>
         <p className="description">{listing.description}</p>
       </div>
-      <div>
+      <div className='btn'>
         <Link to={`/listing/${listing.id}`}>
           <Button>View Details</Button>
         </Link>

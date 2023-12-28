@@ -18,7 +18,7 @@ const ListingDetail = ({ listing }) => {
     boxShadow: "10px 5px 5px gray",
   };
   return (
-    <div className="max-w-md mx-auto bg-white rounded-md overflow-hidden shadow-md">
+    <div>
       <Toast ref={toast} />
       <div className="image">
         <img src={listing.imageURL} alt={listing.name} />
@@ -27,10 +27,10 @@ const ListingDetail = ({ listing }) => {
       <div style={customCardStyle}>
         <Card>
           <div>
-            <h2>{listing.name}</h2>
+            <h1>{listing.name}</h1>
             <p>{listing.description}</p>
-            <p>Listed by: {listing.listedBy}</p>
-            <p>Listed on: {new Date(listing.listedOn).toDateString()}</p>
+            <p><i>Listed by: </i>{listing.listedBy}</p>
+            <p><i>Listed on: </i>{new Date(listing.listedOn).toDateString()}</p>
             <div
               style={{
                 display: "flex",
