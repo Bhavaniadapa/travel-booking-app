@@ -17,18 +17,24 @@ const Home = () => {
   };
   const [ocurrentPage, setoCurrentPage] = useState(1);
   const [olistings, setoListings] = useState([]);
-  const [first, setFirst] = useState(0);
-
+  const [first, setFirst] = useState(1);
   const onPageChangeEvt = (event) => {
-    setFirst(event.first + 1);
-    ofetchListings(event.first + 1);
+    console.log(event);
+    setFirst(event.page + 1);
+    ofetchListings(event.page + 1);
+    
   };
-
   const ofetchListings = async (page) => {
     try {
+      //debugger;
       const response = await axios.get(
         `https://65841ac24d1ee97c6bcefd4e.mockapi.io/hotellistings?page=${page}&limit=10`
       );
+      // await Promise.all([axios.get(`https://65841ac24d1ee97c6bcefd4e.mockapi.io/hotellistings?page=${page}&limit=10`),axios.get(`https://65841ac24d1ee97c6bcefd4e.mockapi.io/hotellistings?page=${2}&limit=10`)])
+      // .then(((response1,response2)=>{
+      //   console.log(response1.data);
+      //   console.log(response2.data);
+      // }))
       setoListings(response.data);
     } catch (error) {
       console.error("Error fetching listings:", error);
@@ -57,9 +63,11 @@ const Home = () => {
             ))}
           </div>
           <Paginator
-            first={first}
-            rows={5}
+            first={first - 1}
+            rows={1}
             totalRecords={olistings.length}
+            // leftContent={onNeg}
+            //rightContent={onPageChangeEvt}
             onPageChange={onPageChangeEvt}
           />
         </div>
